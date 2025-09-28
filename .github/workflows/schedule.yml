@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 20
       - name: Install deps
-        run: npm ci
+        run: npm install
       - name: Run gas optimizer
         env:
           RPC_BASE: ${{ secrets.RPC_BASE }}
