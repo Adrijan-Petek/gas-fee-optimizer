@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-09-28T11:20:42Z",
+  "best_chain": "optimism",
+  "recommendation": "Send your transactions on Optimism now for lowest fees.",
+  "chains": {
+    "base": {
+      "gas_price_gwei": 12,
+      "priority_fee_gwei": 1.2
+    },
+    "optimism": {
+      "gas_price_gwei": 6,
+      "priority_fee_gwei": 0.8
+    },
+    "arbitrum": {
+      "gas_price_gwei": 9,
+      "priority_fee_gwei": 1.0
+    }
+  }
+}

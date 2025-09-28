@@ -1,0 +1,28 @@
+name: Gas Fee Scheduler
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *' # every hour
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install deps
+        run: npm ci
+      - name: Run gas optimizer
+        env:
+          RPC_BASE: ${{ secrets.RPC_BASE }}
+          RPC_OPTIMISM: ${{ secrets.RPC_OPTIMISM }}
+          RPC_ARBITRUM: ${{ secrets.RPC_ARBITRUM }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: node src/gas-optimizer.js
+      - name: Upload reports artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gas-reports
+          path: reports/

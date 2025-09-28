@@ -1,0 +1,17 @@
+{
+  "chains": {
+    "base": {
+      "threshold_gwei": 10
+    },
+    "optimism": {
+      "threshold_gwei": 5
+    },
+    "arbitrum": {
+      "threshold_gwei": 8
+    }
+  },
+  "alert": {
+    "enabled": true,
+    "webhook": "${WEBHOOK_URL}"
+  }
+}
